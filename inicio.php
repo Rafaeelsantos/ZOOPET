@@ -32,6 +32,7 @@ if (!isset($_SESSION['id'])) {
         <div class="logo">
             <img src="https://imgur.com/5eEwTAd.png" alt="Logo">
         </div>
+
         <nav class="categories">
             <ul>
                 <li><a href="inicio.php">INÍCIO</a></li>
@@ -39,17 +40,16 @@ if (!isset($_SESSION['id'])) {
                 <li><a href="#category3">EMPRESA</a></li>
                 <li><a href="contato.php">CONTATO</a></li>
             </ul>
-        </nav>
 
-        <div class="profile-menu">
-            <!-- Ícone de perfil -->
-            <a href="perfil.php"><i class="fas fa-user-circle"></i></a>
-            <!-- Ícone de menu -->
-            <div class="menu-icon" id="menuIcon">
-                <i class="fas fa-bars"></i>
+            <div class="profile-menu">
+                <a href="perfil.php"><i class="fas fa-user-circle"></i></a>
+                <div class="menu-icon" id="menuIcon">
+                    <i class="fas fa-bars"></i>
+                </div>
             </div>
-        </div>
+        </nav>
     </header>
+
     <!----------------------------------------------------------------- FIM DO HEADER ------------------------------------------------------------------->
 
 
@@ -96,9 +96,9 @@ if (!isset($_SESSION['id'])) {
 
 
 
-   
 
-  
+
+
 
 
 
