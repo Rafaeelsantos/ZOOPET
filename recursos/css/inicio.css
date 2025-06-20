@@ -126,11 +126,13 @@ nav.categories ul li a.active {
     z-index: 1;
     top: 0;
     right: 0;
-    background: linear-gradient(135deg, #737594, #5a5858);
+    background: linear-gradient(135deg, #42424b, #5a5858);
     overflow-x: hidden;
     transition: width 0.4s ease-in-out;
     padding-top: 130px;
     font-family: 'Margarine', sans-serif;
+      border-top-left-radius: 40px;
+    border-bottom-left-radius: 25px;
 }
 
 /* Sidebar aberta */
