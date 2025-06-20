@@ -131,7 +131,7 @@ nav.categories ul li a.active {
     transition: width 0.4s ease-in-out;
     padding-top: 130px;
     font-family: 'Margarine', sans-serif;
-      border-top-left-radius: 40px;
+    border-top-left-radius: 40px;
     border-bottom-left-radius: 25px;
 }
 
@@ -161,7 +161,7 @@ nav.categories ul li a.active {
 /* Separadores */
 .sidebar a:not(.closebtn):not(:last-child) {
     border-bottom: 1px solid #fff;
-}   
+}
 
 /* Hover e seleção */
 .sidebar a:not(.closebtn):hover,
@@ -207,7 +207,8 @@ nav.categories ul li a.active {
 
 /* Subcategoria visível */
 .subcategory.visible {
-    max-height: 500px; /* Ajuste conforme conteúdo */
+    max-height: 500px;
+    /* Ajuste conforme conteúdo */
     opacity: 1;
     transform: translateY(0);
     overflow-y: auto;
