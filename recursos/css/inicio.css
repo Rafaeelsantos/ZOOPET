@@ -362,11 +362,38 @@ nav.categories ul li a.active {
         opacity: 1;
     }
 }
-
 /*FIM DO BANNER*/
 
 
+.quem-somos {
+  background-color: #fdfdfd;
+  padding: 60px 20px;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+}
 
+.quem-somos .container {
+  max-width: 800px;
+  margin: 0 auto;
+  color: #333;
+}
+
+.quem-somos h2 {
+  font-size: 2.2rem;
+  color: #4CAF50;
+  margin-bottom: 20px;
+  font-family: 'Margarine', cursive;
+}
+
+.quem-somos p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.quem-somos strong {
+  color: #000;
+}
 
 
 .partners {

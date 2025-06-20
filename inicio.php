@@ -1,15 +1,4 @@
-<?php
-session_start();
-
-require_once 'verifica_login.php';
-
-
-if (!isset($_SESSION['id'])) {
-    // Redireciona para login se não estiver logado (melhor que mostrar mensagem solta)
-    header("Location: login.php");
-    exit;
-}
-?>
+<?php require_once 'usuarios/includes/verifica_login.php'; ?>
 
 
 <!DOCTYPE html>
@@ -42,7 +31,7 @@ if (!isset($_SESSION['id'])) {
             </ul>
 
             <div class="profile-menu">
-                <a href="perfil.php"><i class="fas fa-user-circle"></i></a>
+                <a href="usuarios/perfil_usuario.php"><i class="fas fa-user-circle"></i></a>
                 <div class="menu-icon" id="menuIcon">
                     <i class="fas fa-bars"></i>
                 </div>
@@ -62,7 +51,7 @@ if (!isset($_SESSION['id'])) {
 
         <a href="javascript:void(0)" class="category">Pets</a>
         <ul class="subcategory hidden">
-            <li><a href="#"><img src="https://imgur.com/zH4YYOx.png" alt="Cães">Cães</a></li>
+            <li><a href="petsadocao/caes.php"><img src="https://imgur.com/zH4YYOx.png" alt="Cães">Cães</a></li>
             <li><a href="#"><img src="https://imgur.com/6qCN1SL.png" alt="Gatos">Gatos</a></li>
             <li><a href="#"><img src="https://imgur.com/ov6rggw.png" alt="Pássaros">Pássaros</a></li>
             <li><a href="#"><img src="https://imgur.com/yYBfsfQ.png" alt="Peixes">Peixes</a></li>
@@ -73,6 +62,15 @@ if (!isset($_SESSION['id'])) {
             <li><a href="#"><img src="https://imgur.com/Bnm9Hfe.png" alt="Tartaruga">Tartaruga</a></li>
             <li><a href="#"><img src="https://imgur.com/Ryd3IWZ.png" alt="Répteis">Répteis</a></li>
             <li><a href="#"><img src="https://imgur.com/bnL1Nim.png" alt="Áves Exóticas">Áves Exóticas</a></li>
+        </ul>
+
+        <a href="javascript:void(0)" class="category">Cadastrar Pet</a>
+        <ul class="subcategory hidden">
+            <li><a href="petsadocao/cadastrarpet.php"><img src="" alt="">Formulário de Cadastro</a></li>
+        </ul>
+        <a href="javascript:void(0)" class="category">Sair</a>
+        <ul class="subcategory hidden">
+            <li><a href="usuarios/logout.php"><img src="" alt="">Sair</a></li>
         </ul>
     </div>
     <!------------------------------------------------------------------ FIM DO SIDEBAR -------------------------------------------------------------------->
@@ -92,27 +90,19 @@ if (!isset($_SESSION['id'])) {
     <!------------------------------------------------------------------ FIM DO BANNER --------------------------------------------------------------------->
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    <section class="quem-somos">
+        <div class="container">
+            <h2>🐾 Quem Somos</h2>
+            <p><strong>Transformamos abandono em esperança.</strong></p>
+            <p>Somos uma ONG dedicada ao resgate, cuidado e adoção de cães e gatos em situação de vulnerabilidade. Nossa
+                missão é dar uma nova chance a animais que foram deixados para trás, conectando cada um deles a um lar
+                cheio de amor e responsabilidade.</p>
+            <p>Acreditamos que cada vida importa e que a mudança começa com pequenos gestos — adotar, doar, acolher,
+                compartilhar. Já ajudamos centenas de pets a recomeçar suas histórias, e você pode fazer parte disso.
+            </p>
+            <p><strong>Juntos, salvamos vidas. Juntos, construímos finais felizes.</strong></p>
+        </div>
+    </section>
 
 
 
@@ -123,13 +113,13 @@ if (!isset($_SESSION['id'])) {
             <img src="https://imgur.com/Q6KRDec.png" alt="Logo da Empresa 1">
         </div>
         <div class="partner-logo">
-            <img src="https://imgur.com/Q6KRDec.png" alt="Logo da Empresa 2">
+            <img src="https://imgur.com/bRc8Rhs.png" alt="Logo da Empresa 2">
         </div>
         <div class="partner-logo">
-            <img src="https://imgur.com/Q6KRDec.png" alt="Logo da Empresa 3">
+            <img src="https://imgur.com/YyWpfj7.png" alt="Logo da Empresa 3">
         </div>
         <div class="partner-logo">
-            <img src="https://imgur.com/Q6KRDec.png" alt="Logo da Empresa 4">
+            <img src="https://imgur.com/iOweixa.png" alt="Logo da Empresa 4">
         </div>
     </div>
     <!------------------------------------------------------------------ FIM DAS LOGOS DAS EMPRESAS PARCEIRAS ---------------------------------------------------------------------->
@@ -174,3 +164,5 @@ if (!isset($_SESSION['id'])) {
     <!------------------------------------------------------------------ FIM DO RODAPÉ ---------------------------------------------------------------------->
     <script src="recursos/js/inicio.js"></script>
 </body>
+
+</html>
