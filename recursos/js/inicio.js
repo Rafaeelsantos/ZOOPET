@@ -1,61 +1,55 @@
 document.addEventListener('DOMContentLoaded', function () {
+    // -------------------- Subcategorias --------------------
     const categoryLinks = document.querySelectorAll('.sidebar a.category');
+    const subcategories = document.querySelectorAll('.subcategory');
 
     categoryLinks.forEach(link => {
         link.addEventListener('click', function (event) {
-            event.preventDefault(); // Previne o comportamento padrão do link
+            event.preventDefault();
 
-            // Seleciona a subcategoria correspondente
             const subcategory = this.nextElementSibling;
 
-            // Verifica se a subcategoria está visível
-            const isVisible = subcategory.classList.contains('visible');
-
-            // Fecha todas as subcategorias que estão visíveis
-            document.querySelectorAll('.subcategory').forEach(sub => {
-                sub.classList.remove('visible');
+            // Fecha todas as subcategorias, menos a atual
+            subcategories.forEach(sub => {
+                if (sub !== subcategory) sub.classList.remove('visible');
             });
 
-            // Se a subcategoria clicada não estiver visível, exibe-a
-            if (!isVisible) {
-                subcategory.classList.add('visible');
-            }
+            // Alterna visibilidade da subcategoria clicada
+            subcategory.classList.toggle('visible');
         });
     });
-});
 
-document.getElementById("menuIcon").onclick = function () {
-    openNav();
-};
+    // -------------------- Sidebar Open/Close --------------------
+    const sidebar = document.getElementById("sidebar");
+    const closeBtn = document.querySelector(".sidebar .closebtn");
+    const menuIcon = document.getElementById("menuIcon");
 
-function openNav() {
-    document.getElementById("sidebar").style.width = "400px";
-    document.querySelector(".sidebar .closebtn").style.transform = "rotate(90deg)"; // Rotaciona o ícone de fechar
-}
+    menuIcon?.addEventListener("click", () => {
+        sidebar.classList.add("open");
+        closeBtn.style.transform = "rotate(90deg)";
+    });
 
-function closeNav() {
-    document.getElementById("sidebar").style.width = "0";
-    document.querySelector(".sidebar .closebtn").style.transform = "rotate(0deg)"; // Reseta a rotação do ícone de fechar
-}
+    closeBtn?.addEventListener("click", () => {
+        sidebar.classList.remove("open");
+        closeBtn.style.transform = "rotate(0deg)";
+        // Fecha subcategorias abertas ao fechar a sidebar
+        subcategories.forEach(sub => sub.classList.remove('visible'));
+    });
 
-document.addEventListener("DOMContentLoaded", function () {
-    const sidebarLinks = document.querySelectorAll(".sidebar a:not(.closebtn)");
-    const categoryLinks = document.querySelectorAll("nav.categories ul li a");
+    // -------------------- Destaque do Link Ativo --------------------
+    const sidebarLinks = document.querySelectorAll(".sidebar a:not(.closebtn):not(.category)");
+    const categoryNavLinks = document.querySelectorAll("nav.categories ul li a");
 
     sidebarLinks.forEach(link => {
         link.addEventListener("click", function () {
-            // Remove a classe 'selected' de todos os links
-            sidebarLinks.forEach(link => link.classList.remove("selected"));
-            // Adiciona a classe 'selected' ao link clicado
+            sidebarLinks.forEach(l => l.classList.remove("selected"));
             this.classList.add("selected");
         });
     });
 
-    categoryLinks.forEach(link => {
+    categoryNavLinks.forEach(link => {
         link.addEventListener("click", function () {
-            // Remove a classe 'active' de todos os links de categoria
-            categoryLinks.forEach(link => link.classList.remove("active"));
-            // Adiciona a classe 'active' ao link clicado
+            categoryNavLinks.forEach(l => l.classList.remove("active"));
             this.classList.add("active");
         });
     });
