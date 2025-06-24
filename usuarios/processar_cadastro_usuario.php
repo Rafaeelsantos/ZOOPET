@@ -33,6 +33,12 @@ if ($sql->rowCount() > 0) {
 $stmt = $pdo->prepare("INSERT INTO usuarios (nome, idade, email, telefone, cidade, senha) VALUES (?, ?, ?, ?, ?, ?)");
 $stmt->execute([$nome, $idade, $email, $telefone, $cidade, $senha]);
 
-echo "<script>alert('Cadastro realizado com sucesso!'); window.location.href='login_usuario.php';</script>";
+echo "<script>
+    if (window.history.replaceState) {
+        window.history.replaceState(null, null, window.location.href);
+    }
+    alert('Cadastro realizado com sucesso!');
+    window.location.href = 'login_usuario.php';
+</script>";
 exit;
 ?>

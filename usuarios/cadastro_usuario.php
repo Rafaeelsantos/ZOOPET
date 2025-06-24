@@ -22,7 +22,7 @@
         <div class="right-side">
             <div class="form-container">
                 <h2>Cadastro de Usuário</h2>
-                <form action="processar_cadastro_usuario.php" method="post">
+                <form action="processar_cadastro_usuario.php" method="post" onsubmit="return validarFormulario()">
                     <label for="nome">Nome:</label>
                     <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
 
@@ -33,7 +33,7 @@
                     <input type="email" id="email" name="email" placeholder="Digite seu email" required>
 
                     <label for="telefone">Telefone:</label>
-                    <input type="tel" id="telefone" name="telefone" placeholder="Digite seu telefone" required>
+                    <input type="tel" id="telefone" name="telefone" placeholder="(99) 99999-9999" required>
 
                     <label for="cidade">Cidade:</label>
                     <select id="cidade" name="cidade" required>
@@ -43,7 +43,16 @@
                     </select>
 
                     <label for="senha">Senha:</label>
-                    <input type="password" id="senha" name="senha" placeholder="Crie uma senha" required>
+                    <div class="senha-container">
+                        <input type="password" id="senha" name="senha" placeholder="Crie uma senha" required>
+                        <i class="fas fa-eye toggle-visibility" onclick="toggleSenha('senha')"></i>
+                    </div>
+
+                    <label for="confirmarSenha">Confirmar Senha:</label>
+                    <div class="senha-container">
+                        <input type="password" id="confirmarSenha" placeholder="Confirme sua senha" required>
+                        <i class="fas fa-eye toggle-visibility" onclick="toggleSenha('confirmarSenha')"></i>
+                    </div>
 
                     <button type="submit">Cadastrar</button>
                 </form>
@@ -54,7 +63,17 @@
         </div>
     </div>
 
-    <script src="recursos/js/validar_idade.js"></script>
+    <script src="recursos/js/validar_formulario.js"></script>
+
+    <script>
+        // Limpa o formulário ao carregar a página, mesmo se voltar via botão do navegador
+        window.addEventListener("pageshow", function (event) {
+            if (event.persisted) {
+                document.querySelector("form").reset();
+            }
+        });
+    </script>
+
 
 </body>
 

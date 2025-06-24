@@ -27,7 +27,11 @@
                     <input type="email" id="email" name="email" placeholder="Digite seu email" required>
 
                     <label for="senha">Senha:</label>
-                    <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required>
+                    <div class="senha-container">
+                        <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required>
+                        <i class="fas fa-eye toggle-visibility" onclick="toggleSenha('senha')"></i>
+                    </div>
+
 
                     <button type="submit">Entrar</button>
                 </form>
@@ -37,6 +41,9 @@
             </div>
         </div>
     </div>
+
+    <script src="recursos/js/validar_formulario.js"></script>
+
 </body>
 
 </html>
