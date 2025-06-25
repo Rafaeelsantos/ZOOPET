@@ -2,7 +2,7 @@
 // Arquivo: includes/conexao.php
 
 try {
-    $pdo = new PDO("mysql:host=localhost;dbname=zoopet", "root", "", [
+    $pdo = new PDO("mysql:host=localhost;dbname=zoopet", "root", "@Rafael_2006", [
         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
     ]);
 } catch (PDOException $e) {
