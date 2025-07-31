@@ -96,11 +96,10 @@
             <!-- Texto -->
             <div class="text-content">
                 <img src="recursos\imagens\adicionais\logo.png" alt="Logo" style="width: 150px; margin-bottom: 20px;">
-                <h1><span>Pet Shop</span></h1>
-                <h2>Pet Food and Accessories</h2>
+                <h1><span>Adote um pet.</span></h1>
+                <h2>É o único amor que vem com focinho e patinhas.</h2>
                 <p style="max-width: 350px; margin-top: 10px;">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                    et dolore.
+                    "Comprar? Jamais. O amor verdadeiro se adota!
                 </p>
                 <a href="#" class="join-button">Saiba Mais</a>
             </div>
