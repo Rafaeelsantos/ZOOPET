@@ -72,7 +72,7 @@
                                 <img src="recursos\imagens\usuarios\profile.jpg">
                             </div>
                         </div>
-                        <div class="text">Rafael Santos</div>
+                        <div class="text">Rafael Santoos</div>
                     </a>
                 </li>
                 <li style="--bg: #333;">
