@@ -1,0 +1,398 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', 'Sans-serif';
+}
+
+:root {
+    --clr: #14161e;
+}
+
+body {
+    min-height: 100vh;
+    background: var(--clr);
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    width: 80px;
+    height: 100vh;
+    background: #fff;
+    transition: width 0.3s ease;
+    padding-left: 10px;
+    overflow: hidden;
+    z-index: 1000;
+}
+
+.sidebar.active {
+    width: 300px;
+}
+
+.sidebar ul {
+    position: relative;
+    height: 100vh;
+}
+
+.sidebar ul li {
+    position: relative;
+    list-style: none;
+}
+
+.sidebar ul li.active {
+    background-color: var(--clr);
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+}
+
+.sidebar ul li.logo.active {
+    background-color: transparent;
+    border-radius: 0;
+}
+
+.sidebar ul li:not(.logo).active::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    right: 0;
+    width: 20px;
+    height: 20px;
+    border-bottom-right-radius: 20px;
+    box-shadow: 5px 5px 0 5px var(--clr);
+    background: transparent;
+}
+
+.sidebar ul li:not(.logo).active::after {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    right: 0;
+    width: 20px;
+    height: 20px;
+    border-top-right-radius: 20px;
+    box-shadow: 5px -5px 0 5px var(--clr);
+    background: transparent;
+}
+
+.sidebar ul li.logo {
+    margin-bottom: 50px;
+    z-index: 1000;
+    cursor: pointer;
+}
+
+.sidebar ul li.logo .icon {
+    font-size: 2em;
+}
+
+.sidebar ul li.logo .text {
+    font-size: 1.2em;
+    font-weight: 500;
+}
+
+.logo .icon {
+    transition: transform 0.3s ease, left 0.3s ease;
+    position: relative;
+}
+
+.logo.active .icon {
+    transform: rotate(180deg);
+    left: 200px;
+    /* Ajuste conforme a largura da sidebar aberta */
+}
+
+
+.sidebar ul li a {
+    position: relative;
+    display: flex;
+    white-space: nowrap;
+    text-decoration: none;
+}
+
+.sidebar ul li a .icon {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 60px;
+    padding-left: 10px;
+    height: 70px;
+    font-size: 1.5em;
+    color: #333;
+    transition: 0.5s;
+}
+
+.sidebar ul li a .text {
+    position: relative;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    font-size: 1em;
+    color: #333;
+    padding-left: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: 0.5s
+}
+
+.sidebar ul li:not(.logo).active a .icon {
+    color: #fff;
+}
+
+.sidebar ul li:not(.logo).active a .text {
+    color: var(--bg);
+}
+
+.sidebar ul li:not(.logo):hover a .icon,
+.sidebar ul li:not(.logo):hover a .text {
+    color: var(--bg);
+}
+
+.sidebar ul li:not(.logo).active a .icon::before {
+    content: '';
+    position: absolute;
+    inset: 5px;
+    width: 60px;
+    background-color: var(--bg);
+    border-radius: 50%;
+    transition: 0.5s;
+}
+
+.sidebar ul li:not(.logo):hover.active a .icon::before {
+    background: #fff;
+}
+
+.sidebar ul li:not(.logo).active:hover a .icon,
+.sidebar ul li:not(.logo).active:hover a .text {
+    color: var(--bg);
+}
+
+.bottom {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.imgBx {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.imgBx img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.content {
+    margin-left: 80px;
+    /* espaço fixo para a sidebar fechada */
+    transition: margin-left 0.3s ease;
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+    /* espaçamento vertical e horizontal */
+}
+
+.sidebar.active~.content {
+    margin-left: 300px;
+    /* espaço maior para sidebar aberta */
+}
+
+
+.profile-card {
+    position: relative;
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 40px 60px;
+    width: 100%;
+    max-width: 1200px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+
+.card-icon {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 24px;
+    color: #000000;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.card-icon:hover {
+    color: #ff9100;
+}
+
+
+
+.profile-header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    /* Espaçamento maior entre a foto e o nome */
+}
+
+.profile-card .imgBx {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid #ddd;
+}
+
+.profile-card .username {
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+}
+
+.imgBxx {
+    position: relative;
+    width: 100px;
+    height: 100px;
+}
+
+.imgWrapper {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid #000000;
+}
+
+.imgWrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Agora a bolinha transborda visivelmente */
+.edit-icon {
+    position: absolute;
+    bottom: -6px;
+    /* parte da esfera para fora */
+    right: -6px;
+    background-color: #ff9100;
+    border: 2px solid #ddd;
+    border-radius: 50%;
+    padding: 10px;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    z-index: 1;
+}
+
+.edit-icon ion-icon {
+    font-size: 16px;
+    color: #ffffff;
+}
+
+
+.username {
+    font-size: 24px;
+    /* Fonte maior para o nome */
+    font-weight: 600;
+    color: #333;
+}
+
+.user-info {
+    margin-top: 10px;
+    color: #555;
+    font-size: 16px;
+    /* Fonte maior para as infos */
+    line-height: 1.6;
+}
+
+.user-info p {
+    margin-bottom: 8px;
+}
+
+.user-info strong {
+    color: #333;
+}
+
+
+
+
+
+.profile-description {
+    margin-top: 30px;
+    width: 100%;
+    max-width: 700px;
+    text-align: center;
+}
+
+.description-box {
+    background-color: #7e7e7e;
+    border-radius: 10px;
+    padding: 20px 30px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    font-size: 16px;
+    color: #333;
+    max-width: 100%;
+    line-height: 1.6;
+    text-align: left;
+    transition: background-color 0.3s ease;
+}
+
+
+.profile-stats {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+.stat-box {
+    background-color: #f5f5f5;
+    border-radius: 12px;
+    padding: 20px 30px;
+    text-align: center;
+    width: 220px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+}
+
+.stat-box:hover {
+    transform: translateY(-5px);
+}
+
+.stat-box ion-icon {
+    font-size: 30px;
+    color: #ff9100;
+    margin-bottom: 10px;
+}
+
+.stat-box p {
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+}
+
+
+.profile-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    /* centraliza no eixo horizontal */
+    flex: 1;
+}

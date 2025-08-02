@@ -27,7 +27,7 @@
 
             <div class="MenuList">
                 <li style="--bg: #f44336;" class="active">
-                    <a href="#">
+                    <a href="inicio.php">
                         <div class="icon"><ion-icon name="home-outline"></ion-icon></div>
                         <div class="text">Home</div>
                     </a>
@@ -66,13 +66,13 @@
 
             <div class="bottom">
                 <li style="--bg: #333;">
-                    <a href="usuarios/perfilusuario.php">
+                    <a href="usuarios\perfilusuario.php">
                         <div class="icon">
                             <div class="imgBx">
                                 <img src="recursos\imagens\usuarios\profile.jpg">
                             </div>
                         </div>
-                        <div class="text">Rafael Santoos</div>
+                        <div class="text"><?php echo htmlspecialchars($_SESSION['nome']); ?></div>
                     </a>
                 </li>
                 <li style="--bg: #333;">
