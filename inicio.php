@@ -3,7 +3,7 @@ session_start();
 
 // Se não houver usuário logado, redireciona para login
 if (!isset($_SESSION['usuario_id'])) {
-    header("Location: ../pagina_de_cadastro_e_login/realizar_login.php");
+    header("Location: paginas/pagina_de_cadastro_e_login/realizar_login.php");
     exit;
 }
 
@@ -19,8 +19,8 @@ $nome_usuario = $_SESSION['usuario_nome'];
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>zoopet</title>
-    <link rel="stylesheet" href="pagina_inicial_recursos\css\inicio.css">
-    <link rel="icon" href="pagina_inicial_recursos\imagens\adicionais\patas.png" type="image/x-icon">
+    <link rel="stylesheet" href="pagina_inicial_recursos/css/inicio.css">
+    <link rel="icon" href="pagina_inicial_recursos\imagens\adicionais\pata.png" type="image/x-icon">
 
 
 </head>
@@ -88,7 +88,7 @@ $nome_usuario = $_SESSION['usuario_nome'];
                     </a>
                 </li>
                 <li style="--bg: #333;">
-                    <a href="../pagina_de_cadastro_e_login/conexoes/logout.php">
+                    <a href="paginas/pagina_de_cadastro_e_login/conexoes/logout.php">
                         <div class="icon"><ion-icon name="log-out-outline"></ion-icon></div>
                         <div class="text">Sair</div>
                     </a>
