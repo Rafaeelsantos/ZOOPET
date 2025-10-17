@@ -12,6 +12,8 @@ $nome_usuario = $_SESSION['usuario_nome'];
 ?>
 
 
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,8 +21,16 @@ $nome_usuario = $_SESSION['usuario_nome'];
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>zoopet</title>
-    <link rel="stylesheet" href="pagina_inicial_recursos/css/inicio.css">
     <link rel="icon" href="pagina_inicial_recursos\imagens\adicionais\pata.png" type="image/x-icon">
+
+    <?php
+    $css_dir = 'pagina_inicial_recursos/css';
+    $css_files = glob($css_dir . '/*.css');
+    foreach ($css_files as $css) {
+        echo '<link rel="stylesheet" href="' . $css . '">' . "\n";
+    }
+    ?>
+
 
 
 </head>
@@ -39,15 +49,15 @@ $nome_usuario = $_SESSION['usuario_nome'];
 
             <div class="MenuList">
                 <li style="--bg: #f44336;" class="active">
-                    <a href="inicio.php">
+                    <a href="#" data-page="home">
                         <div class="icon"><ion-icon name="home-outline"></ion-icon></div>
-                        <div class="text">Home</div>
+                        <div class="text">Inicio</div>
                     </a>
                 </li>
                 <li style="--bg: #ffa117;">
-                    <a href="#">
+                    <a href="#" data-page="adote">
                         <div class="icon"><ion-icon name="person-outline"></ion-icon></div>
-                        <div class="text">Profile</div>
+                        <div class="text">Adote</div>
                     </a>
                 </li>
                 <li style="--bg: #0fc70f;">
@@ -84,7 +94,7 @@ $nome_usuario = $_SESSION['usuario_nome'];
                                 <img src="pagina_inicial_recursos\imagens\usuarios\profile.jpg">
                             </div>
                         </div>
-                        <div class="text"><?php echo htmlspecialchars($_SESSION['nome']); ?></div>
+                        <div class="text"><?php echo htmlspecialchars($_SESSION['usuario_nome']); ?></div>
                     </a>
                 </li>
                 <li style="--bg: #333;">
@@ -99,34 +109,13 @@ $nome_usuario = $_SESSION['usuario_nome'];
 
 
     <!-- Conteúdo principal -->
-    <div class="content">
-        <div class="banner">
-            <!-- Formas curvas decorativas -->
-            <div class="curve curve-top"></div>
-            <div class="curve curve-bottom"></div>
 
-            <!-- Texto -->
-            <div class="text-content">
-                <img src="pagina_inicial_recursos\imagens\adicionais\logo.png" alt="Logo"
-                    style="width: 150px; margin-bottom: 20px;">
-                <h1><span>Adote um pet.</span></h1>
-                <h2>É o único amor que vem com focinho e patinhas.</h2>
-                <p style="max-width: 350px; margin-top: 10px;">
-                    "Comprar? Jamais. O amor verdadeiro se adota!
-                </p>
-                <a href="#" class="join-button">Saiba Mais</a>
-            </div>
 
-            <!-- Imagem -->
-            <div class="dog-image">
-                <img src="pagina_inicial_recursos\imagens\pets\doog.png" alt="Dog">
-            </div>
-
-            <!-- Pata decorativa -->
-            <img src="pagina_inicial_recursos\imagens\adicionais\patas.png" class="paw paw1" alt="pata decorativa">
-            <img src="pagina_inicial_recursos\imagens\adicionais\patas.png" class="paw paw2" alt="pata decorativa">
-        </div>
+    <div class="content" id="content">
+        <?php include 'paginas/componentes/home.php'; ?>
     </div>
+
+
 
 
 
@@ -134,6 +123,7 @@ $nome_usuario = $_SESSION['usuario_nome'];
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script src="pagina_inicial_recursos\js\inicio.js"></script>
+    <script src="pagina_inicial_recursos\js\elementosPaginas.js"></script>
 
 </body>
 

@@ -1,0 +1,38 @@
+#content {
+    transition: opacity 0.3s ease;
+}
+
+
+.content {
+    margin-left: 80px;
+    /* espaço fixo para a sidebar fechada */
+    transition: margin-left 0.3s ease;
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+    /* espaçamento vertical e horizontal */
+}
+
+.banner {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    padding: 20px 0;
+}
+
+.banner img {
+    width: 85%;
+    height: 650px;
+    max-width: 1200px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+    .banner img {
+        width: 100%;
+        border-radius: 0;
+    }
+}
